@@ -1,17 +1,14 @@
 <template>
-  <div class="home">
-    <Pixel msg="Welcome to Your Vue.js App"/>
-  </div>
+  <Canvas :rows="25"/>
 </template>
 
 <script>
-// @ is an alias to /src
-import Pixel from '@/components/Pixel.vue'
+import Canvas from "@/components/Canvas.vue";
 
 export default {
-  name: 'home',
+  name: "home",
   components: {
-    Pixel
+    Canvas
   }
-}
+};
 </script>
