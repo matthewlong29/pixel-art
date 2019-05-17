@@ -14,7 +14,7 @@ export default {
 <style scoped lang="scss">
 div {
   &:hover {
-    background-color: black;
+    background-color: transparentize($color: black, $amount: 0.5);
   }
 }
 </style>
