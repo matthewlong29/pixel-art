@@ -1,13 +1,15 @@
 <template>
   <main>
-    <CanvasSizeSlider @inputData="updateSize"></CanvasSizeSlider>
+    <CanvasSizeSlider @inputData="updateSize"/>
     <Canvas :columns="gridSize"/>
+    <ColorPalette/>
   </main>
 </template>
 
 <script>
 import Canvas from "@/components/Canvas.vue";
 import CanvasSizeSlider from "@/components/CanvasSizeSlider.vue";
+import ColorPalette from "@/components/ColorPalette.vue";
 
 export default {
   name: "home",
@@ -18,7 +20,8 @@ export default {
   },
   components: {
     Canvas,
-    CanvasSizeSlider
+    CanvasSizeSlider,
+    ColorPalette
   },
   methods: {
     updateSize(val) {

@@ -1,7 +1,13 @@
 <template>
   <section>
     <div v-for="pixels in columns" v-bind:key="pixels.id" class="column">
-      <Pixel v-for="pixel in columns" v-bind:key="pixel.id" height="20" class="pixel"/>
+      <Pixel
+        v-for="pixel in columns"
+        v-bind:key="pixel.id"
+        height="20"
+        class="pixel"
+        color="black"
+      />
     </div>
   </section>
 </template>
