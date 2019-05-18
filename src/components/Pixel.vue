@@ -2,9 +2,10 @@
   <div>
     <div
       :style="{ width: `${height}px`, height: `${height}px`, backgroundColor: `${color}`}"
-      v-bind:class="{'partiallyVisible': active, 'fullyInvisible': !active}"
-      @mouseenter="active = !active"
-      @mouseleave="active = !active"
+      v-bind:class="{'partiallyVisible': active && !clicked, 'fullyInvisible': !active && !clicked, 'fullyVisible': clicked}"
+      @mouseenter="!clicked ? active = !active : null"
+      @mouseleave="!clicked ? active = !active : null"
+      @mousedown="clicked = true"
     ></div>
   </div>
 </template>
@@ -14,7 +15,8 @@ export default {
   name: "Pixel",
   data() {
     return {
-      active: false
+      active: false,
+      clicked: false
     };
   },
   props: {
