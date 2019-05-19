@@ -1,7 +1,14 @@
 <template>
   <section>
     <div v-for="pixels in columns" v-bind:key="pixels.id" class="column">
-      <Pixel v-for="pixel in columns" v-bind:key="pixel.id" height="20" class="pixel"/>
+      <Pixel
+        v-for="pixel in columns"
+        v-bind:key="pixel.id"
+        height="20"
+        class="pixel"
+        :color="currentColor"
+        :canvasPixel="true"
+      />
     </div>
   </section>
 </template>
@@ -15,7 +22,8 @@ export default {
     Pixel
   },
   props: {
-    columns: { type: Number } // rows === columns (square canvas)
+    columns: { type: Number }, // rows === columns (square canvas)
+    currentColor: { type: String }
   }
 };
 </script>
