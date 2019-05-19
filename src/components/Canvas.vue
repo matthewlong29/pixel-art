@@ -7,6 +7,7 @@
         height="20"
         class="pixel"
         color="black"
+        :canvasPixel=true
       />
     </div>
   </section>
