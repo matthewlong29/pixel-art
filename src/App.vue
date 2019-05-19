@@ -3,13 +3,13 @@
     <main>
       <h1>Pixel Art! Best art.. ¯\_(ツ)_/¯</h1>
       <div class="canvas-container">
-        <Canvas :columns="gridSize"/>
+        <Canvas :columns="gridSize" :currentColor="colorName"/>
       </div>
     </main>
     <aside>
       <div class="toolbar-container">
         <CanvasSizeSlider @inputData="updateSize" class="canvas-size"/>
-        <ColorPalette class="color-palette"/>
+        <ColorPalette @clicked="updateColor" class="color-palette"/>
       </div>
     </aside>
   </div>
@@ -23,7 +23,8 @@ import ColorPalette from "@/components/ColorPalette.vue";
 export default {
   data() {
     return {
-      gridSize: 25
+      gridSize: 25,
+      colorName: "blue"
     };
   },
   components: {
@@ -34,6 +35,9 @@ export default {
   methods: {
     updateSize(val) {
       this.gridSize = parseInt(val);
+    },
+    updateColor(val) {
+      this.colorName = val;
     }
   }
 };

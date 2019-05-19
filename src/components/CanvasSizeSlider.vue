@@ -5,7 +5,7 @@
       <ToolHeader text="Canvas Size" v-if="expanded" icon="minus-square"/>
     </div>
     <div v-if="expanded">
-      <input type="range" min="1" max="50" v-model="gridSize" @change="submitSize">
+      <input type="range" min="1" max="50" v-model="gridSize" @change="submitSize()">
       <h3>Canvas Size: {{gridSize}} x {{gridSize}}</h3>
     </div>
   </section>

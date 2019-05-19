@@ -6,8 +6,8 @@
         v-bind:key="pixel.id"
         height="20"
         class="pixel"
-        color="black"
-        :canvasPixel=true
+        :color="currentColor"
+        :canvasPixel="true"
       />
     </div>
   </section>
@@ -22,7 +22,8 @@ export default {
     Pixel
   },
   props: {
-    columns: { type: Number } // rows === columns (square canvas)
+    columns: { type: Number }, // rows === columns (square canvas)
+    currentColor: { type: String }
   }
 };
 </script>
