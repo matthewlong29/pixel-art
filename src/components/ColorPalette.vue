@@ -9,14 +9,14 @@
         <Pixel
           class="chosen-color-pixel pixel"
           height="68"
-          color="blue"
-          v-on:click.native="setColor('blue')"
+          color="black"
+          v-on:click.native="setColor('black')"
         />
         <Pixel
           class="chosen-color-pixel pixel"
           height="68"
-          color="red"
-          v-on:click.native="setColor('red')"
+          color="white"
+          v-on:click.native="setColor('white')"
         />
       </div>
       <div class="column">
