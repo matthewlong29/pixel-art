@@ -9,7 +9,9 @@
     <aside>
       <div class="toolbar-container">
         <CanvasSizeSlider @inputData="updateSize" class="canvas-size"/>
+        <PixelSizeSlider @inputData="updateSize" class="pixel-size"/>
         <ColorPalette @clicked="updateColor" class="color-palette"/>
+        <DownloadArt class="download-art"/>
       </div>
     </aside>
   </div>
@@ -18,19 +20,24 @@
 <script>
 import Canvas from "@/components/Canvas.vue";
 import CanvasSizeSlider from "@/components/CanvasSizeSlider.vue";
+import PixelSizeSlider from "@/components/PixelSizeSlider.vue";
 import ColorPalette from "@/components/ColorPalette.vue";
+import DownloadArt from "@/components/DownloadArt.vue";
 
 export default {
   data() {
     return {
       gridSize: 25,
+      pixelSide: 50,
       colorName: "blue"
     };
   },
   components: {
     Canvas,
     CanvasSizeSlider,
-    ColorPalette
+    ColorPalette,
+    PixelSizeSlider,
+    DownloadArt
   },
   methods: {
     updateSize(val) {
@@ -92,9 +99,11 @@ h6 {
     .toolbar-container {
       @extend %common-panel-styles;
       width: 186px;
-      height: calc(100% - 4px);
+      min-height: calc(100% - 4px);
       .canvas-size,
-      .color-palette {
+      .pixel-size,
+      .color-palette,
+      .download-art {
         padding: 16px;
         border-bottom: 2px solid black;
         &:hover {
