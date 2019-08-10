@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="canvasPixel"
-      :style="{ width: `${height}px`, height: `${height}px`, backgroundColor: `${color}`}"
+      :style="{ width: `${pixelSize}px`, height: `${pixelSize}px`, backgroundColor: `${color}`}"
       v-bind:class="{'partiallyVisible': active && !clicked, 'fullyInvisible': !active && !clicked, 'fullyVisible': clicked}"
       @mouseenter="!clicked ? active = !active : null"
       @mouseleave="!clicked ? active = !active : null"
@@ -10,7 +10,7 @@
     ></div>
     <div
       v-else
-      :style="{ width: `${height}px`, height: `${height}px`, backgroundColor: `${color}`}"
+      :style="{ width: `${pixelSize}px`, height: `${pixelSize}px`, backgroundColor: `${color}`}"
       class="fullyVisible"
     ></div>
   </div>
@@ -26,7 +26,7 @@ export default {
     };
   },
   props: {
-    height: { type: String }, // height === width (square pixel)
+    pixelSize: { type: Number }, // pixelSize === width (square pixel)
     color: { type: String },
     canvasPixel: { type: Boolean } // indicates pixel is for the canvas only
   }

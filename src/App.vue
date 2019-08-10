@@ -3,15 +3,15 @@
     <main>
       <h1>Pixel Art! Best art.. ¯\_(ツ)_/¯</h1>
       <div class="canvas-container">
-        <Canvas :columns="gridSize" :currentColor="colorName"/>
+        <Canvas :columns="gridSize" :pixelSize="pixelSize" :currentColor="colorName" />
       </div>
     </main>
     <aside>
       <div class="toolbar-container">
-        <CanvasSizeSlider @inputData="updateSize" class="canvas-size"/>
-        <PixelSizeSlider @inputData="updateSize" class="pixel-size"/>
-        <ColorPalette @clicked="updateColor" class="color-palette"/>
-        <DownloadArt class="download-art"/>
+        <CanvasSizeSlider @inputData="updateGridSize" class="canvas-size" />
+        <PixelSizeSlider @inputData="updatePixelSize" class="pixel-size" />
+        <ColorPalette @clicked="updateColor" class="color-palette" />
+        <DownloadArt class="download-art" />
       </div>
     </aside>
   </div>
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       gridSize: 25,
-      pixelSide: 50,
+      pixelSize: 25,
       colorName: "blue"
     };
   },
@@ -40,9 +40,21 @@ export default {
     DownloadArt
   },
   methods: {
-    updateSize(val) {
+    /**
+     * updatePixelSize.
+     */
+    updatePixelSize(val) {
+      this.pixelSize = parseInt(val);
+    },
+    /**
+     * updateGridSize.
+     */
+    updateGridSize(val) {
       this.gridSize = parseInt(val);
     },
+    /**
+     * updateColor.
+     */
     updateColor(val) {
       this.colorName = val;
     }

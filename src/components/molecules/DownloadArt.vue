@@ -25,6 +25,9 @@ export default {
     ToolHeader
   },
   methods: {
+    /**
+     * toggleTool.
+     */
     toggleTool() {
       this.expanded = !this.expanded;
       console.log(this.expanded === true ? "expanded" : "not expanded");
