@@ -26,7 +26,7 @@ export default {
     };
   },
   props: {
-    pixelSize: { type: Number }, // pixelSize === width (square pixel)
+    pixelSize: { type: String }, // pixelSize === width (square pixel)
     color: { type: String },
     canvasPixel: { type: Boolean } // indicates pixel is for the canvas only
   }

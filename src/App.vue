@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       gridSize: 25,
-      pixelSize: 25,
+      pixelSize: "25",
       colorName: "blue"
     };
   },
@@ -44,7 +44,7 @@ export default {
      * updatePixelSize.
      */
     updatePixelSize(val) {
-      this.pixelSize = parseInt(val);
+      this.pixelSize = val;
     },
     /**
      * updateGridSize.
