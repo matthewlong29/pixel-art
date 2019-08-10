@@ -1,12 +1,14 @@
 <template>
   <section>
     <div class="menu-button" v-on:click="toggleTool()">
-      <ToolHeader text="Pixel Size" v-if="!expanded" icon="plus-square" />
-      <ToolHeader text="Pixel Size" v-if="expanded" icon="minus-square" />
+      <ToolHeader text="Theme" v-if="!expanded" icon="plus-square" />
+      <ToolHeader text="Theme" v-if="expanded" icon="minus-square" />
     </div>
     <div class="menu-content" v-if="expanded">
-      <input type="range" min="1" max="50" v-model="pixelSize" @change="submitPixelSize()" />
-      <h3>Pixel Size: "{{pixelSize}}px"</h3>
+      <input type="radio" id="dark" v-model="theme" value="dark" @change="submitChosenTheme()" />
+      <label for="dark">Dark</label>
+      <input type="radio" id="light" v-model="theme" value="light" @change="submitChosenTheme()" />
+      <label for="light">Light</label>
     </div>
   </section>
 </template>
@@ -15,22 +17,23 @@
 import ToolHeader from "@/components/atoms/ToolHeader.vue";
 
 export default {
-  name: "PixelSizeSlider",
+  name: "ThemeSelector",
   components: {
     ToolHeader
   },
   data() {
     return {
-      pixelSize: 25, // default size of 25px
+      theme: "",
       expanded: false
     };
   },
   methods: {
     /**
-     * submitPixelSize.
+     * submitChosenTheme.
      */
-    submitPixelSize() {
-      this.$emit("inputData", this.pixelSize);
+    submitChosenTheme() {
+      this.$emit("inputData", this.theme);
+      console.log(`chosen theme: ${this.theme}`);
     },
     /**
      * toggleTool.
@@ -48,12 +51,5 @@ export default {
 section {
   @extend %menu-button;
   @extend %menu-content;
-  input {
-    width: calc(100% - 2px);
-  }
-  h3 {
-    margin: 0;
-  }
 }
 </style>
-

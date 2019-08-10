@@ -1,0 +1,31 @@
+@import "./variables";
+
+%toolbar-background {
+  background: repeating-linear-gradient(
+      -35deg,
+      transparent,
+      transparent 12px,
+      transparentize($color: $primaryOne, $amount: 0.85) 12px,
+      transparentize($color: $accent, $amount: 0.95) 24px
+    ),
+    linear-gradient(
+      to bottom,
+      transparentize($color: $primaryOne, $amount: 0.85),
+      transparentize($color: $accent, $amount: 0.95)
+    );
+}
+
+%menu-button {
+  .menu-button {
+    @extend %toolbar-background;
+    padding: 16px;
+    cursor: pointer;
+    border-bottom: 4px solid $accent;
+  }
+}
+
+%menu-content {
+  .menu-content {
+    margin: 16px;
+  }
+}

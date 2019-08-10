@@ -8,6 +8,7 @@
     </main>
     <aside>
       <div class="toolbar-container">
+        <ThemeSelector class="theme-color" />
         <CanvasSizeSlider @inputData="updateGridSize" class="canvas-size" />
         <PixelSizeSlider @inputData="updatePixelSize" class="pixel-size" />
         <ColorPalette @clicked="updateColor" class="color-palette" />
@@ -19,6 +20,7 @@
 
 <script>
 import Canvas from "@/components/organisms/Canvas.vue";
+import ThemeSelector from "@/components/molecules/ThemeSelector.vue";
 import CanvasSizeSlider from "@/components/molecules/CanvasSizeSlider.vue";
 import PixelSizeSlider from "@/components/molecules/PixelSizeSlider.vue";
 import ColorPalette from "@/components/molecules/ColorPalette.vue";
@@ -34,6 +36,7 @@ export default {
   },
   components: {
     Canvas,
+    ThemeSelector,
     CanvasSizeSlider,
     ColorPalette,
     PixelSizeSlider,
@@ -112,11 +115,11 @@ h6 {
       @extend %common-panel-styles;
       width: 186px;
       min-height: calc(100% - 4px);
+      .theme-color,
       .canvas-size,
       .pixel-size,
       .color-palette,
       .download-art {
-        padding: 16px;
         border-bottom: 2px solid black;
         &:hover {
           box-shadow: 2px 2px 9px 2px

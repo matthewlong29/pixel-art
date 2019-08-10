@@ -1,12 +1,12 @@
 <template>
   <section>
-    <div v-on:click="toggleTool()">
-      <ToolHeader text="Download" v-if="!expanded" icon="plus-square"/>
-      <ToolHeader text="Download" v-if="expanded" icon="minus-square"/>
+    <div class="menu-button" v-on:click="toggleTool()">
+      <ToolHeader text="Download" v-if="!expanded" icon="plus-square" />
+      <ToolHeader text="Download" v-if="expanded" icon="minus-square" />
     </div>
-    <div v-if="expanded">
+    <div class="menu-content" v-if="expanded">
       <h3>Enter Name:</h3>
-      <input type="text" name id>
+      <input type="text" name id />
     </div>
   </section>
 </template>
@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       expanded: false
-    }
+    };
   },
   components: {
     ToolHeader
@@ -37,4 +37,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../styles/placeholders";
+
+section {
+  @extend %menu-button;
+  @extend %menu-content;
+}
 </style>

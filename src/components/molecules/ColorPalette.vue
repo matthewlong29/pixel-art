@@ -1,10 +1,10 @@
 <template>
   <section>
-    <div v-on:click="toggleTool()">
+    <div class="menu-button" v-on:click="toggleTool()">
       <ToolHeader text="Color Palette" v-if="!expanded" icon="plus-square" />
       <ToolHeader text="Color Palette" v-if="expanded" icon="minus-square" />
     </div>
-    <div v-if="expanded">
+    <div class="menu-content" v-if="expanded">
       <div class="chosen-color-container">
         <Pixel
           class="chosen-color-pixel pixel"
@@ -730,7 +730,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../styles/placeholders";
+
 section {
+  @extend %menu-button;
+  @extend %menu-content;
   .column {
     display: inline-block;
     .pixel {
