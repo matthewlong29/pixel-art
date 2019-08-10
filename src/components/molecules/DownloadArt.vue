@@ -42,5 +42,11 @@ export default {
 section {
   @extend %menu-button;
   @extend %menu-content;
+  h3 {
+    margin: 0;
+  }
+  input {
+    width: calc(100% - 8px);
+  }
 }
 </style>
