@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import ToolHeader from "@/components/partials/ToolHeader.vue";
+import ToolHeader from "@/components/atoms/ToolHeader.vue";
 
 export default {
   name: "DownloadArt",

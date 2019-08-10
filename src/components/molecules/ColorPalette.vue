@@ -324,8 +324,8 @@
 </template>
 
 <script>
-import Pixel from "@/components/Pixel";
-import ToolHeader from "@/components/partials/ToolHeader.vue";
+import Pixel from "@/components/atoms/Pixel";
+import ToolHeader from "@/components/atoms/ToolHeader.vue";
 
 export default {
   name: "ColorPalette",

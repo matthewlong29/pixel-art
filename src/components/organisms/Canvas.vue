@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Pixel from "@/components/Pixel";
+import Pixel from "@/components/atoms/Pixel";
 
 export default {
   name: "Canvas",

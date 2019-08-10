@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import Canvas from "@/components/Canvas.vue";
-import CanvasSizeSlider from "@/components/CanvasSizeSlider.vue";
-import PixelSizeSlider from "@/components/PixelSizeSlider.vue";
-import ColorPalette from "@/components/ColorPalette.vue";
-import DownloadArt from "@/components/DownloadArt.vue";
+import Canvas from "@/components/organisms/Canvas.vue";
+import CanvasSizeSlider from "@/components/molecules/CanvasSizeSlider.vue";
+import PixelSizeSlider from "@/components/molecules/PixelSizeSlider.vue";
+import ColorPalette from "@/components/molecules/ColorPalette.vue";
+import DownloadArt from "@/components/molecules/DownloadArt.vue";
 
 export default {
   data() {

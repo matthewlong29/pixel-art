@@ -1,21 +1,21 @@
 <template>
   <section>
     <div v-on:click="toggleTool()">
-      <ToolHeader text="Pixel Size" v-if="!expanded" icon="plus-square"/>
-      <ToolHeader text="Pixel Size" v-if="expanded" icon="minus-square"/>
+      <ToolHeader text="Canvas Size" v-if="!expanded" icon="plus-square"/>
+      <ToolHeader text="Canvas Size" v-if="expanded" icon="minus-square"/>
     </div>
     <div v-if="expanded">
       <input type="range" min="1" max="50" v-model="gridSize" @change="submitSize()">
-      <h3>Pixel Size: "{{gridSize}}px"</h3>
+      <h3>Canvas Size: {{gridSize}} x {{gridSize}}</h3>
     </div>
   </section>
 </template>
 
 <script>
-import ToolHeader from "@/components/partials/ToolHeader.vue";
+import ToolHeader from "@/components/atoms/ToolHeader.vue";
 
 export default {
-  name: "PixelSizeSlider",
+  name: "CanvasSizeSlider",
   components: {
     ToolHeader
   },
