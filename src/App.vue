@@ -3,39 +3,58 @@
     <main>
       <h1>Pixel Art! Best art.. ¯\_(ツ)_/¯</h1>
       <div class="canvas-container">
-        <Canvas :columns="gridSize" :currentColor="colorName"/>
+        <Canvas :columns="gridSize" :pixelSize="pixelSize" :currentColor="colorName" />
       </div>
     </main>
     <aside>
       <div class="toolbar-container">
-        <CanvasSizeSlider @inputData="updateSize" class="canvas-size"/>
-        <ColorPalette @clicked="updateColor" class="color-palette"/>
+        <CanvasSizeSlider @inputData="updateGridSize" class="canvas-size" />
+        <PixelSizeSlider @inputData="updatePixelSize" class="pixel-size" />
+        <ColorPalette @clicked="updateColor" class="color-palette" />
+        <DownloadArt class="download-art" />
       </div>
     </aside>
   </div>
 </template>
 
 <script>
-import Canvas from "@/components/Canvas.vue";
-import CanvasSizeSlider from "@/components/CanvasSizeSlider.vue";
-import ColorPalette from "@/components/ColorPalette.vue";
+import Canvas from "@/components/organisms/Canvas.vue";
+import CanvasSizeSlider from "@/components/molecules/CanvasSizeSlider.vue";
+import PixelSizeSlider from "@/components/molecules/PixelSizeSlider.vue";
+import ColorPalette from "@/components/molecules/ColorPalette.vue";
+import DownloadArt from "@/components/molecules/DownloadArt.vue";
 
 export default {
   data() {
     return {
       gridSize: 25,
+      pixelSize: "25",
       colorName: "blue"
     };
   },
   components: {
     Canvas,
     CanvasSizeSlider,
-    ColorPalette
+    ColorPalette,
+    PixelSizeSlider,
+    DownloadArt
   },
   methods: {
-    updateSize(val) {
+    /**
+     * updatePixelSize.
+     */
+    updatePixelSize(val) {
+      this.pixelSize = val;
+    },
+    /**
+     * updateGridSize.
+     */
+    updateGridSize(val) {
       this.gridSize = parseInt(val);
     },
+    /**
+     * updateColor.
+     */
     updateColor(val) {
       this.colorName = val;
     }
@@ -92,9 +111,11 @@ h6 {
     .toolbar-container {
       @extend %common-panel-styles;
       width: 186px;
-      height: calc(100% - 4px);
+      min-height: calc(100% - 4px);
       .canvas-size,
-      .color-palette {
+      .pixel-size,
+      .color-palette,
+      .download-art {
         padding: 16px;
         border-bottom: 2px solid black;
         &:hover {

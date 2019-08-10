@@ -1,18 +1,18 @@
 <template>
   <section>
     <div v-on:click="toggleTool()">
-      <ToolHeader text="Canvas Size" v-if="!expanded" icon="plus-square"/>
-      <ToolHeader text="Canvas Size" v-if="expanded" icon="minus-square"/>
+      <ToolHeader text="Canvas Size" v-if="!expanded" icon="plus-square" />
+      <ToolHeader text="Canvas Size" v-if="expanded" icon="minus-square" />
     </div>
     <div v-if="expanded">
-      <input type="range" min="1" max="50" v-model="gridSize" @change="submitSize()">
+      <input type="range" min="1" max="50" v-model="gridSize" @change="submitGridSize()" />
       <h3>Canvas Size: {{gridSize}} x {{gridSize}}</h3>
     </div>
   </section>
 </template>
 
 <script>
-import ToolHeader from "@/components/partials/ToolHeader.vue";
+import ToolHeader from "@/components/atoms/ToolHeader.vue";
 
 export default {
   name: "CanvasSizeSlider",
@@ -21,17 +21,22 @@ export default {
   },
   data() {
     return {
-      gridSize: 25,
+      gridSize: 25, // default size of 25x25
       expanded: false
     };
   },
   methods: {
-    submitSize() {
+    /**
+     * submitGridSize
+     */
+    submitGridSize() {
       this.$emit("inputData", this.gridSize);
     },
+    /**
+     * toggleTool
+     */
     toggleTool() {
       this.expanded = !this.expanded;
-      console.log(this.expanded === true ? "expanded" : "not expanded");
     }
   }
 };
