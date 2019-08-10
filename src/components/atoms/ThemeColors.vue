@@ -1,14 +1,27 @@
 <script>
 export default {
+  name: "theme",
   data() {
     return {
-      darkTheme: {
-        primary: "#121212",
-        secondary: "#fdfdfd"
+      one: {
+        primaryOne: "#39414b",
+        primaryTwo: "#1f2327",
+        accent: "#4ecca3"
       },
-      lightTheme: {
-        primary: "#fdfdfd",
-        secondary: "#121212"
+      two: {
+        primaryOne: "#525252",
+        primaryTwo: "#313131",
+        accent: "#db5059"
+      },
+      three: {
+        primaryOne: "#faf5ef",
+        primaryTwo: "#d7d1c9",
+        accent: "#672f2f"
+      },
+      four: {
+        primaryOne: "#6e2142",
+        primaryTwo: "#943855",
+        accent: "#ffd692"
       }
     };
   }

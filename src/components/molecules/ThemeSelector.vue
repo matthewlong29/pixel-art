@@ -117,7 +117,8 @@ section {
         display: inline-block;
         padding: 8px 17px;
         margin: 2px;
-        border: 1px solid black;
+        border: 1px dashed black;
+        border-radius: 4px;
       }
       input {
         margin: 0 5px 0 0;
