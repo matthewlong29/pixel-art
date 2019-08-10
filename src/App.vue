@@ -31,7 +31,7 @@ export default {
     return {
       gridSize: 25,
       pixelSize: "25",
-      colorName: "blue"
+      colorName: "black"
     };
   },
   components: {

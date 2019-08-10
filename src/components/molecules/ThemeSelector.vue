@@ -6,12 +6,13 @@
     </div>
     <div class="menu-content" v-if="expanded">
       <div class="theme-option">
-        <label for="themeOne">
+        <label for="one">
+          <h2>Theme One</h2>
           <input
             type="radio"
-            id="themeOne"
-            v-model="theme"
-            value="themeOne"
+            id="one"
+            v-model="themeNumber"
+            value="one"
             @change="submitChosenTheme()"
           />
           <div style="background: #39414b"></div>
@@ -20,12 +21,13 @@
         </label>
       </div>
       <div class="theme-option">
-        <label for="themeTwo">
+        <label for="two">
+          <h2>Theme Two</h2>
           <input
             type="radio"
-            id="themeTwo"
-            v-model="theme"
-            value="themeTwo"
+            id="two"
+            v-model="themeNumber"
+            value="two"
             @change="submitChosenTheme()"
           />
           <div style="background: #525252"></div>
@@ -34,12 +36,13 @@
         </label>
       </div>
       <div class="theme-option">
-        <label for="themeThree">
+        <label for="three">
+          <h2>Theme Three</h2>
           <input
             type="radio"
-            id="themeThree"
-            v-model="theme"
-            value="themeThree"
+            id="three"
+            v-model="themeNumber"
+            value="three"
             @change="submitChosenTheme()"
           />
           <div style="background: #faf5ef"></div>
@@ -48,12 +51,13 @@
         </label>
       </div>
       <div class="theme-option">
-        <label for="themeFour">
+        <label for="four">
+          <h2>Theme Four</h2>
           <input
             type="radio"
-            id="themeFour"
-            v-model="theme"
-            value="themeFour"
+            id="four"
+            v-model="themeNumber"
+            value="four"
             @change="submitChosenTheme()"
           />
           <div style="background: #6e2142"></div>
@@ -75,7 +79,7 @@ export default {
   },
   data() {
     return {
-      theme: "",
+      themeNumber: "one",
       expanded: false
     };
   },
@@ -84,8 +88,8 @@ export default {
      * submitChosenTheme.
      */
     submitChosenTheme() {
-      this.$emit("inputData", this.theme);
-      console.log(`chosen theme: ${this.theme}`);
+      this.$emit("inputData", this.themeNumber);
+      console.log(`chosen theme: ${this.themeNumber}`);
     },
     /**
      * toggleTool.
@@ -99,6 +103,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../styles/placeholders";
+@import "../../styles/variables";
 
 section {
   @extend %menu-button;
@@ -108,20 +113,35 @@ section {
     justify-content: center;
     align-content: center;
     flex-direction: column;
+
     label {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 4px 0px;
+      margin: 4px -16px;
+      padding: 2px 16px;
+      flex-wrap: wrap;
+      cursor: pointer;
+      h2 {
+        margin: 0;
+        font-size: 1.25rem;
+        flex-grow: 1;
+        width: 100%;
+      }
       div {
         display: inline-block;
         padding: 8px 17px;
         margin: 2px;
         border: 1px dashed black;
         border-radius: 4px;
+        flex-grow: 1;
       }
       input {
+        display: none;
         margin: 0 5px 0 0;
+      }
+      &:hover {
+        background-color: transparentize($color: $primaryOne, $amount: 0.75);
       }
     }
   }
