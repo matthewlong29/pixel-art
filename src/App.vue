@@ -68,6 +68,51 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:300|VT323&display=swap");
 
+:root {
+  --primaryOne: rgb(57, 65, 75);
+  --primaryOneTransparent: rgba(57, 65, 75, 0.15);
+  --primaryTwo: rgb(31, 35, 39);
+  --primaryTwoTransparent: rgba(31, 35, 39, 0.15);
+  --accent: rgb(78, 204, 163);
+  --accentTransparent: rgba(78, 204, 163, 0.15);
+}
+
+[data-theme="one"] {
+  --primaryOne: rgb(57, 65, 75);
+  --primaryOneTransparent: rgba(57, 65, 75, 0.15);
+  --primaryTwo: rgb(31, 35, 39);
+  --primaryTwoTransparent: rgba(31, 35, 39, 0.15);
+  --accent: rgb(78, 204, 163);
+  --accentTransparent: rgba(78, 204, 163, 0.15);
+}
+
+[data-theme="two"] {
+  --primaryOne: rgb(82, 82, 82);
+  --primaryOneTransparent: rgba(82, 82, 82, 0.15);
+  --primaryTwo: rgb(49, 49, 49);
+  --primaryTwoTransparent: rgba(49, 49, 49, 0.15);
+  --accent: rgb(219, 80, 89);
+  --accentTransparent: rgba(219, 80, 89, 0.15);
+}
+
+[data-theme="three"] {
+  --primaryOne: rgb(250, 245, 239);
+  --primaryOneTransparent: rgba(250, 245, 239, 0.15);
+  --primaryTwo: rgb(215, 209, 201);
+  --primaryTwoTransparent: rgba(215, 209, 201, 0.15);
+  --accent: rgb(103, 47, 47);
+  --accentTransparent: rgba(103, 47, 47, 0.15);
+}
+
+[data-theme="four"] {
+  --primaryOne: rgb(110, 33, 66);
+  --primaryOneTransparent: rgba(110, 33, 66, 0.15);
+  --primaryTwo: rgb(148, 56, 85);
+  --primaryTwoTransparent: rgba(148, 56, 85, 0.15);
+  --accent: rgb(255, 214, 146);
+  --accentTransparent: rgba(255, 214, 146, 0.15);
+}
+
 html,
 body {
   font-family: "Ubuntu", sans-serif;

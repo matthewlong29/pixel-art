@@ -5,13 +5,13 @@
       -35deg,
       transparent,
       transparent 12px,
-      transparentize($color: $primaryOne, $amount: 0.85) 12px,
-      transparentize($color: $accent, $amount: 0.95) 24px
+      var(--primaryOneTransparent) 12px,
+      var(--accentTransparent) 24px
     ),
     linear-gradient(
       to bottom,
-      transparentize($color: $primaryOne, $amount: 0.85),
-      transparentize($color: $accent, $amount: 0.95)
+      var(--primaryOneTransparent),
+      var(--accentTransparent)
     );
 }
 
@@ -20,8 +20,8 @@
     @extend %toolbar-background;
     padding: 16px;
     cursor: pointer;
-    border-bottom: 4px solid $accent;
-    box-shadow: 1px 2px 3px transparentize($color: $primaryTwo, $amount: 0.7);
+    border-bottom: 4px solid var(--accent);
+    box-shadow: 1px 2px 3px var(--primaryTwoTransparent);
   }
 }
 
