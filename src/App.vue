@@ -83,52 +83,32 @@ export default {
      * selectThemeOne.
      */
     function selectThemeOne(event) {
-      if (event.target.checked) {
-        document.documentElement.setAttribute("data-theme", "one");
-        localStorage.setItem("theme", "one");
-      } else {
-        document.documentElement.setAttribute("data-theme", "one");
-        localStorage.setItem("theme", "one");
-      }
+      document.documentElement.setAttribute("data-theme", "one");
+      localStorage.setItem("theme", "one");
     }
 
     /**
      * selectThemeTwo.
      */
     function selectThemeTwo(event) {
-      if (event.target.checked) {
-        document.documentElement.setAttribute("data-theme", "two");
-        localStorage.setItem("theme", "two");
-      } else {
-        document.documentElement.setAttribute("data-theme", "two");
-        localStorage.setItem("theme", "two");
-      }
+      document.documentElement.setAttribute("data-theme", "two");
+      localStorage.setItem("theme", "two");
     }
 
     /**
      * selectThemeThree.
      */
     function selectThemeThree(event) {
-      if (event.target.checked) {
-        document.documentElement.setAttribute("data-theme", "three");
-        localStorage.setItem("theme", "three");
-      } else {
-        document.documentElement.setAttribute("data-theme", "three");
-        localStorage.setItem("theme", "three");
-      }
+      document.documentElement.setAttribute("data-theme", "three");
+      localStorage.setItem("theme", "three");
     }
 
     /**
      * selectThemeFour.
      */
     function selectThemeFour(event) {
-      if (event.target.checked) {
-        document.documentElement.setAttribute("data-theme", "four");
-        localStorage.setItem("theme", "four");
-      } else {
-        document.documentElement.setAttribute("data-theme", "four");
-        localStorage.setItem("theme", "four");
-      }
+      document.documentElement.setAttribute("data-theme", "four");
+      localStorage.setItem("theme", "four");
     }
 
     themeOne.addEventListener("change", selectThemeOne, false);
