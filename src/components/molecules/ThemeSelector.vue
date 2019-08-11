@@ -6,36 +6,36 @@
     </div>
     <div class="menu-content" v-if="expanded">
       <div class="theme-option">
-        <label for="one">
+        <label for="themeOne">
           <h2>Theme One</h2>
-          <input type="radio" id="one" name="themeNumber" value="one" />
+          <input type="radio" id="themeOne" name="themeNumber" value="themeOne" />
           <div style="background: #39414b"></div>
           <div style="background: #1f2327"></div>
           <div style="background: #4ecca3"></div>
         </label>
       </div>
       <div class="theme-option">
-        <label for="two">
+        <label for="themeTwo">
           <h2>Theme Two</h2>
-          <input type="radio" id="two" name="themeNumber" value="two" />
+          <input type="radio" id="themeTwo" name="themeNumber" value="themeTwo" />
           <div style="background: #525252"></div>
           <div style="background: #313131"></div>
           <div style="background: #db5059"></div>
         </label>
       </div>
       <div class="theme-option">
-        <label for="three">
+        <label for="themeThree">
           <h2>Theme Three</h2>
-          <input type="radio" id="three" name="themeNumber" value="three" />
+          <input type="radio" id="themeThree" name="themeNumber" value="themeThree" />
           <div style="background: #faf5ef"></div>
           <div style="background: #d7d1c9"></div>
           <div style="background: #672f2f"></div>
         </label>
       </div>
       <div class="theme-option">
-        <label for="four">
+        <label for="themeFour">
           <h2>Theme Four</h2>
-          <input type="radio" id="four" name="themeNumber" value="four" />
+          <input type="radio" id="themeFour" name="themeNumber" value="themeFour" />
           <div style="background: #6e2142"></div>
           <div style="background: #943855"></div>
           <div style="background: #ffd692"></div>
