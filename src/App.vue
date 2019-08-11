@@ -68,9 +68,11 @@ export default {
     const themeThree = document.querySelector("#themeThree");
     const themeFour = document.querySelector("#themeFour");
     const currentTheme = localStorage.getItem("theme");
+
     if (currentTheme) {
       document.documentElement.setAttribute("data-theme", currentTheme);
     }
+
     /**
      * selectThemeOne.
      */
@@ -83,6 +85,7 @@ export default {
         localStorage.setItem("theme", "one");
       }
     }
+
     /**
      * selectThemeTwo.
      */
@@ -95,6 +98,7 @@ export default {
         localStorage.setItem("theme", "two");
       }
     }
+
     /**
      * selectThemeThree.
      */
@@ -107,22 +111,10 @@ export default {
         localStorage.setItem("theme", "three");
       }
     }
-    /**
-     * selectThemeFour.
-     */
-    function selectThemeFour(event) {
-      if (event.target.checked) {
-        document.documentElement.setAttribute("data-theme", "four");
-        localStorage.setItem("theme", "four");
-      } else {
-        document.documentElement.setAttribute("data-theme", "four");
-        localStorage.setItem("theme", "four");
-      }
-    }
+
     themeOne.addEventListener("change", selectThemeOne, false);
     themeTwo.addEventListener("change", selectThemeTwo, false);
     themeThree.addEventListener("change", selectThemeThree, false);
-    themeFour.addEventListener("change", selectThemeFour, false);
   }
 };
 </script>
@@ -131,53 +123,53 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:300|VT323&display=swap");
 
 :root {
-  --primaryOne: rgb(57, 65, 75);
-  --primaryTwo: rgb(31, 35, 39);
+  --backgroundOne: rgb(57, 65, 75);
+  --backgroundTwo: rgb(31, 35, 39);
+  --fontColor: rgb(253, 253, 253);
   --accent: rgb(78, 204, 163);
-  --primaryOneTransparent: rgba(57, 65, 75, 0.15);
-  --primaryTwoTransparent: rgba(31, 35, 39, 0.15);
+  --backgroundOneTransparent: rgba(57, 65, 75, 0.15);
+  --backgroundTwoTransparent: rgba(31, 35, 39, 0.15);
+  --fontColorTransparent: rgb(253, 253, 253, 0.35);
   --accentTransparent: rgba(78, 204, 163, 0.15);
 }
 
 [data-theme="one"] {
-  --primaryOne: rgb(57, 65, 75);
-  --primaryTwo: rgb(31, 35, 39);
+  --backgroundOne: rgb(57, 65, 75);
+  --backgroundTwo: rgb(31, 35, 39);
+  --fontColor: rgb(253, 253, 253);
   --accent: rgb(78, 204, 163);
-  --primaryOneTransparent: rgba(57, 65, 75, 0.15);
-  --primaryTwoTransparent: rgba(31, 35, 39, 0.15);
+  --backgroundOneTransparent: rgba(57, 65, 75, 0.15);
+  --backgroundTwoTransparent: rgba(31, 35, 39, 0.15);
+  --fontColorTransparent: rgb(253, 253, 253, 0.35);
   --accentTransparent: rgba(78, 204, 163, 0.15);
 }
 
 [data-theme="two"] {
-  --primaryOne: rgb(82, 82, 82);
-  --primaryTwo: rgb(49, 49, 49);
+  --backgroundOne: rgb(82, 82, 82);
+  --backgroundTwo: rgb(49, 49, 49);
+  --fontColor: rgb(231, 228, 228);
   --accent: rgb(219, 80, 89);
-  --primaryOneTransparent: rgba(82, 82, 82, 0.15);
-  --primaryTwoTransparent: rgba(49, 49, 49, 0.15);
+  --backgroundOneTransparent: rgba(82, 82, 82, 0.15);
+  --backgroundTwoTransparent: rgba(49, 49, 49, 0.15);
+  --fontColorTransparent: rgb(231, 228, 228, 0.35);
   --accentTransparent: rgba(219, 80, 89, 0.15);
 }
 
 [data-theme="three"] {
-  --primaryOne: rgb(250, 245, 239);
-  --primaryTwo: rgb(215, 209, 201);
+  --backgroundOne: rgb(250, 245, 239);
+  --backgroundTwo: rgb(215, 209, 201);
+  --fontColor: rgb(29, 29, 29);
   --accent: rgb(103, 47, 47);
-  --primaryOneTransparent: rgba(250, 245, 239, 0.15);
-  --primaryTwoTransparent: rgba(215, 209, 201, 0.15);
+  --backgroundOneTransparent: rgba(250, 245, 239, 0.15);
+  --backgroundTwoTransparent: rgba(215, 209, 201, 0.15);
+  --fontColorTransparent: rgb(29, 29, 29, 0.35);
   --accentTransparent: rgba(103, 47, 47, 0.15);
-}
-
-[data-theme="four"] {
-  --primaryOne: rgb(110, 33, 66);
-  --primaryTwo: rgb(148, 56, 85);
-  --accent: rgb(255, 214, 146);
-  --primaryOneTransparent: rgba(110, 33, 66, 0.15);
-  --primaryTwoTransparent: rgba(148, 56, 85, 0.15);
-  --accentTransparent: rgba(255, 214, 146, 0.15);
 }
 
 html,
 body {
   font-family: "Ubuntu", sans-serif;
+  background-color: var(--backgroundOne);
 }
 
 h1,
@@ -187,11 +179,12 @@ h4,
 h5,
 h6 {
   font-family: "VT323", monospace;
+  color: var(--fontColor);
 }
 
 %common-panel-styles {
-  border: 2px solid black;
-  box-shadow: 2px 2px 4px black;
+  border: 2px solid var(--fontColor);
+  box-shadow: 2px 2px 4px var(--fontColorTransparent);
 }
 
 #app {

@@ -34,7 +34,7 @@ section {
   .column {
     display: inline-block;
     .pixel {
-      border: 1px solid black;
+      border: 1px solid var(--fontColor);
     }
   }
 }

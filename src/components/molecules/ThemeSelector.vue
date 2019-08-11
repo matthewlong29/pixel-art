@@ -32,15 +32,6 @@
           <div style="background: #672f2f"></div>
         </label>
       </div>
-      <div class="theme-option">
-        <label for="themeFour">
-          <h2>Theme Four</h2>
-          <input type="radio" id="themeFour" name="themeNumber" value="themeFour" />
-          <div style="background: #6e2142"></div>
-          <div style="background: #943855"></div>
-          <div style="background: #ffd692"></div>
-        </label>
-      </div>
     </div>
   </section>
 </template>
@@ -71,7 +62,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../styles/placeholders";
-@import "../../styles/variables";
 
 section {
   @extend %menu-button;
@@ -100,7 +90,7 @@ section {
         display: inline-block;
         padding: 8px 17px;
         margin: 2px;
-        border: 1px dashed black;
+        border: 1px dashed var(--backgroundOne);
         border-radius: 4px;
         flex-grow: 1;
       }
@@ -109,7 +99,7 @@ section {
         margin: 0 5px 0 0;
       }
       &:hover {
-        background-color: var(--primaryOneTransparent);
+        background-color: var(--backgroundTwoTransparent);
       }
     }
   }

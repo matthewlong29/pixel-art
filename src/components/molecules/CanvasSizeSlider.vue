@@ -44,7 +44,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../styles/placeholders";
-@import "../../styles/variables";
 
 section {
   @extend %menu-button;
