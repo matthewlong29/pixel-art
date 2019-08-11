@@ -112,9 +112,23 @@ export default {
       }
     }
 
+    /**
+     * selectThemeFour.
+     */
+    function selectThemeFour(event) {
+      if (event.target.checked) {
+        document.documentElement.setAttribute("data-theme", "four");
+        localStorage.setItem("theme", "four");
+      } else {
+        document.documentElement.setAttribute("data-theme", "four");
+        localStorage.setItem("theme", "four");
+      }
+    }
+
     themeOne.addEventListener("change", selectThemeOne, false);
     themeTwo.addEventListener("change", selectThemeTwo, false);
     themeThree.addEventListener("change", selectThemeThree, false);
+    themeFour.addEventListener("change", selectThemeFour, false);
   }
 };
 </script>
@@ -164,6 +178,17 @@ export default {
   --backgroundTwoTransparent: rgba(215, 209, 201, 0.15);
   --fontColorTransparent: rgb(29, 29, 29, 0.35);
   --accentTransparent: rgba(103, 47, 47, 0.15);
+}
+
+[data-theme="four"] {
+  --backgroundOne: rgb(4, 47, 75);
+  --backgroundTwo: rgb(251, 201, 157);
+  --fontColor: rgb(231, 228, 228);
+  --accent: rgb(237, 18, 80);
+  --backgroundOneTransparent: rgba(4, 47, 75, 0.15);
+  --backgroundTwoTransparent: rgba(251, 201, 157, 0.15);
+  --fontColorTransparent: rgba(231, 228, 228, 0.35);
+  --accentTransparent: rgba(237, 18, 80, 0.15);
 }
 
 html,

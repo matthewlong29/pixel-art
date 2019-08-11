@@ -32,6 +32,15 @@
           <div style="background: #672f2f"></div>
         </label>
       </div>
+      <div class="theme-option">
+        <label for="themeFour">
+          <h2>Theme Four</h2>
+          <input type="radio" id="themeFour" name="themeNumber" value="themeFour" />
+          <div style="background: #042f4b"></div>
+          <div style="background: #fbc99d"></div>
+          <div style="background: #ed1250"></div>
+        </label>
+      </div>
     </div>
   </section>
 </template>
