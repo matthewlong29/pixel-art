@@ -1,10 +1,10 @@
 <template>
   <section>
-    <div v-on:click="toggleTool()">
+    <div class="menu-button" v-on:click="toggleTool()">
       <ToolHeader text="Pixel Size" v-if="!expanded" icon="plus-square" />
       <ToolHeader text="Pixel Size" v-if="expanded" icon="minus-square" />
     </div>
-    <div v-if="expanded">
+    <div class="menu-content" v-if="expanded">
       <input type="range" min="1" max="50" v-model="pixelSize" @change="submitPixelSize()" />
       <h3>Pixel Size: "{{pixelSize}}px"</h3>
     </div>
@@ -43,7 +43,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../styles/placeholders";
+
 section {
+  @extend %menu-button;
+  @extend %menu-content;
   input {
     width: calc(100% - 2px);
   }
