@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <main>
-      <h1>Pixel Art! Best art.. ¯\_(ツ)_/¯</h1>
+      <h1>
+        Pixel Art! Best art..
+        <span>¯\_(ツ)_/¯</span>
+      </h1>
       <div class="canvas-container">
         <Canvas :columns="gridSize" :pixelSize="pixelSize" :currentColor="colorName" />
       </div>
@@ -11,6 +14,7 @@
         <ThemeSelector class="theme-color" />
         <CanvasSizeSlider @inputData="updateGridSize" class="canvas-size" />
         <PixelSizeSlider @inputData="updatePixelSize" class="pixel-size" />
+        <BrushSelector class="brush-selector" />
         <ColorPalette @clicked="updateColor" class="color-palette" />
         <DownloadArt class="download-art" />
       </div>
@@ -25,6 +29,7 @@ import CanvasSizeSlider from "@/components/molecules/CanvasSizeSlider.vue";
 import PixelSizeSlider from "@/components/molecules/PixelSizeSlider.vue";
 import ColorPalette from "@/components/molecules/ColorPalette.vue";
 import DownloadArt from "@/components/molecules/DownloadArt.vue";
+import BrushSelector from "@/components/molecules/BrushSelector.vue";
 
 export default {
   data() {
@@ -40,6 +45,7 @@ export default {
     CanvasSizeSlider,
     ColorPalette,
     PixelSizeSlider,
+    BrushSelector,
     DownloadArt
   },
   methods: {
@@ -207,6 +213,13 @@ h6 {
   color: var(--fontColor);
 }
 
+p,
+a,
+span {
+  font-family: "Ubuntu", sans-serif;
+  color: var(--fontColor);
+}
+
 %common-panel-styles {
   border: 2px solid var(--fontColor);
   box-shadow: 2px 2px 4px var(--fontColorTransparent);
@@ -228,6 +241,9 @@ h6 {
     }
     h1 {
       margin: 0 0 16px 0;
+      span {
+        color: var(--accent);
+      }
     }
   }
   aside {
@@ -244,6 +260,7 @@ h6 {
       .canvas-size,
       .pixel-size,
       .color-palette,
+      .brush-selector,
       .download-art {
         border-bottom: 2px solid black;
         &:hover {
