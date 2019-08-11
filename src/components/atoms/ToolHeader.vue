@@ -25,5 +25,8 @@ export default {
   h2 {
     margin: 0;
   }
+  svg {
+    color: var(--accent);
+  }
 }
 </style>
