@@ -4,7 +4,7 @@
       <Pixel
         v-for="pixel in columns"
         v-bind:key="pixel.id"
-        height="20"
+        :pixelSize="pixelSize"
         class="pixel"
         :color="currentColor"
         :canvasPixel="true"
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Pixel from "@/components/Pixel";
+import Pixel from "@/components/atoms/Pixel";
 
 export default {
   name: "Canvas",
@@ -23,7 +23,8 @@ export default {
   },
   props: {
     columns: { type: Number }, // rows === columns (square canvas)
-    currentColor: { type: String }
+    currentColor: { type: String },
+    pixelSize: { type: String } // width === height (square pixel)
   }
 };
 </script>
@@ -33,7 +34,7 @@ section {
   .column {
     display: inline-block;
     .pixel {
-      border: 1px solid black;
+      border: 1px solid var(--fontColor);
     }
   }
 }

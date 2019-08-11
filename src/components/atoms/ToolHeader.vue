@@ -20,7 +20,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 8px 0;
+  margin: 0;
   cursor: pointer;
   h2 {
     margin: 0;
