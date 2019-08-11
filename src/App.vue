@@ -14,7 +14,7 @@
         <ThemeSelector class="theme-color" />
         <CanvasSizeSlider @inputData="updateGridSize" class="canvas-size" />
         <PixelSizeSlider @inputData="updatePixelSize" class="pixel-size" />
-        <BrushSelector class="brush-selector" />
+        <ToolSelector class="brush-selector" />
         <ColorPalette @clicked="updateColor" class="color-palette" />
         <DownloadArt class="download-art" />
       </div>
@@ -29,7 +29,7 @@ import CanvasSizeSlider from "@/components/molecules/CanvasSizeSlider.vue";
 import PixelSizeSlider from "@/components/molecules/PixelSizeSlider.vue";
 import ColorPalette from "@/components/molecules/ColorPalette.vue";
 import DownloadArt from "@/components/molecules/DownloadArt.vue";
-import BrushSelector from "@/components/molecules/BrushSelector.vue";
+import ToolSelector from "@/components/molecules/ToolSelector.vue";
 
 export default {
   data() {
@@ -45,7 +45,7 @@ export default {
     CanvasSizeSlider,
     ColorPalette,
     PixelSizeSlider,
-    BrushSelector,
+    ToolSelector,
     DownloadArt
   },
   methods: {

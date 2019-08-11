@@ -5,16 +5,16 @@
       <ToolHeader text="Tool Select" v-if="expanded" icon="minus-square" />
     </div>
     <div class="menu-content" v-if="expanded">
-      <label for="paintBrush">
-        <input type="radio" id="paintBrush" name="brushType" value="paintBrush" />
-        <font-awesome-icon icon="paint-brush" />
-      </label>
+      <input type="radio" id="pencil" name="selectedTool" value="pencil" />
       <label for="pencil">
-        <input type="radio" id="pencil" name="brushType" value="pencil" />
         <font-awesome-icon icon="pencil-alt" />
       </label>
+      <input type="radio" id="paintBrush" name="selectedTool" value="paintBrush" />
+      <label for="paintBrush">
+        <font-awesome-icon icon="paint-brush" />
+      </label>
+      <input type="radio" id="fill" name="selectedTool" value="fill" />
       <label for="fill">
-        <input type="radio" id="fill" name="brushType" value="fill" />
         <font-awesome-icon icon="fill-drip" />
       </label>
     </div>
@@ -25,13 +25,14 @@
 import ToolHeader from "@/components/atoms/ToolHeader.vue";
 
 export default {
-  name: "BrushSelector",
+  name: "ToolSelector",
   components: {
     ToolHeader
   },
   data() {
     return {
-      expanded: false
+      expanded: false,
+      selectedTool: { type: String, default: "pencil" }
     };
   },
   methods: {
@@ -40,6 +41,13 @@ export default {
      */
     toggleTool() {
       this.expanded = !this.expanded;
+    },
+    /**
+     * submitToolSelection.
+     */
+    submitToolSelection() {
+      console.log(`selected ${this.selectedTool} tool`);
+      this.$emit("inputData", this.selectedTool);
     }
   }
 };
@@ -59,15 +67,19 @@ section {
       border-radius: 6px;
       font-size: 1.2rem;
       cursor: pointer;
-      input {
-        display: none;
-      }
+
       svg {
         color: var(--accent);
       }
+    }
+    input {
+      display: none;
       &:hover {
         background-color: var(--accentTransparent);
       }
+    }
+    input[type="radio"]:checked + label {
+      background-color: var(--accentTransparent);
     }
   }
 }
