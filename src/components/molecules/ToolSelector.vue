@@ -1,19 +1,41 @@
 <template>
   <section>
-    <div class="menu-button" v-on:click="toggleTool()">
+    <div class="menu-button" @click="toggleTool()">
       <ToolHeader text="Tool Select" v-if="!expanded" icon="plus-square" />
       <ToolHeader text="Tool Select" v-if="expanded" icon="minus-square" />
     </div>
     <div class="menu-content" v-if="expanded">
-      <input type="radio" id="pencil" name="selectedTool" value="pencil" />
+      <input
+        type="radio"
+        id="pencil"
+        name="selectedTool"
+        v-model="selectedTool"
+        value="pencil"
+        @change="submitToolSelection()"
+        checked
+      />
       <label for="pencil">
         <font-awesome-icon icon="pencil-alt" />
       </label>
-      <input type="radio" id="paintBrush" name="selectedTool" value="paintBrush" />
+      <input
+        type="radio"
+        id="paintBrush"
+        name="selectedTool"
+        v-model="selectedTool"
+        value="paintBrush"
+        @change="submitToolSelection()"
+      />
       <label for="paintBrush">
         <font-awesome-icon icon="paint-brush" />
       </label>
-      <input type="radio" id="fill" name="selectedTool" value="fill" />
+      <input
+        type="radio"
+        id="fill"
+        name="selectedTool"
+        v-model="selectedTool"
+        value="fill"
+        @change="submitToolSelection()"
+      />
       <label for="fill">
         <font-awesome-icon icon="fill-drip" />
       </label>
@@ -46,7 +68,6 @@ export default {
      * submitToolSelection.
      */
     submitToolSelection() {
-      console.log(`selected ${this.selectedTool} tool`);
       this.$emit("inputData", this.selectedTool);
     }
   }

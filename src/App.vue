@@ -6,7 +6,12 @@
         <span>¯\_(ツ)_/¯</span>
       </h1>
       <div class="canvas-container">
-        <Canvas :columns="gridSize" :pixelSize="pixelSize" :currentColor="colorName" />
+        <Canvas
+          :columns="gridSize"
+          :pixelSize="pixelSize"
+          :currentColor="colorName"
+          :toolName="toolName"
+        />
       </div>
     </main>
     <aside>
@@ -14,7 +19,7 @@
         <ThemeSelector class="theme-color" />
         <CanvasSizeSlider @inputData="updateGridSize" class="canvas-size" />
         <PixelSizeSlider @inputData="updatePixelSize" class="pixel-size" />
-        <ToolSelector class="brush-selector" />
+        <ToolSelector @inputData="updateTool" class="tool-selector" />
         <ColorPalette @clicked="updateColor" class="color-palette" />
         <DownloadArt class="download-art" />
       </div>
@@ -36,7 +41,8 @@ export default {
     return {
       gridSize: 25,
       pixelSize: "25",
-      colorName: "black"
+      colorName: "black",
+      toolName: "pencil"
     };
   },
   components: {
@@ -66,6 +72,12 @@ export default {
      */
     updateColor(val) {
       this.colorName = val;
+    },
+    /**
+     * updateTool.
+     */
+    updateTool(val) {
+      this.toolName = val;
     }
   },
   mounted() {
@@ -240,7 +252,7 @@ span {
       .canvas-size,
       .pixel-size,
       .color-palette,
-      .brush-selector,
+      .tool-selector,
       .download-art {
         border-bottom: 2px solid black;
         &:hover {

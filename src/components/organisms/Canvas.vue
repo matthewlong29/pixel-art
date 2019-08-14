@@ -2,10 +2,11 @@
   <section>
     <div v-for="pixels in columns" v-bind:key="pixels.id" class="column">
       <Pixel
+        class="pixel"
         v-for="pixel in columns"
         v-bind:key="pixel.id"
         :pixelSize="pixelSize"
-        class="pixel"
+        :toolName="toolName"
         :color="currentColor"
         :canvasPixel="true"
       />
@@ -23,6 +24,7 @@ export default {
   },
   props: {
     columns: { type: Number }, // rows === columns (square canvas)
+    toolName: { type: String },
     currentColor: { type: String },
     pixelSize: { type: String } // width === height (square pixel)
   }
