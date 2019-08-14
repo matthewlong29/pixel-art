@@ -27,13 +27,13 @@ export default {
   },
   methods: {
     /**
-     * submitGridSize
+     * submitGridSize.
      */
     submitGridSize() {
       this.$emit("inputData", this.gridSize);
     },
     /**
-     * toggleTool
+     * toggleTool.
      */
     toggleTool() {
       this.expanded = !this.expanded;
