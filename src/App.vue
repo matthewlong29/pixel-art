@@ -1,9 +1,17 @@
 <template>
   <div id="app">
     <main>
-      <h1>Pixel Art! Best art.. ¯\_(ツ)_/¯</h1>
+      <h1>
+        Pixel Art! Best art..
+        <span>¯\_(ツ)_/¯</span>
+      </h1>
       <div class="canvas-container">
-        <Canvas :columns="gridSize" :pixelSize="pixelSize" :currentColor="colorName" />
+        <Canvas
+          :columns="gridSize"
+          :pixelSize="pixelSize"
+          :currentColor="colorName"
+          :toolName="toolName"
+        />
       </div>
     </main>
     <aside>
@@ -11,6 +19,7 @@
         <ThemeSelector class="theme-color" />
         <CanvasSizeSlider @inputData="updateGridSize" class="canvas-size" />
         <PixelSizeSlider @inputData="updatePixelSize" class="pixel-size" />
+        <ToolSelector @inputData="updateTool" class="tool-selector" />
         <ColorPalette @clicked="updateColor" class="color-palette" />
         <DownloadArt class="download-art" />
       </div>
@@ -25,13 +34,15 @@ import CanvasSizeSlider from "@/components/molecules/CanvasSizeSlider.vue";
 import PixelSizeSlider from "@/components/molecules/PixelSizeSlider.vue";
 import ColorPalette from "@/components/molecules/ColorPalette.vue";
 import DownloadArt from "@/components/molecules/DownloadArt.vue";
+import ToolSelector from "@/components/molecules/ToolSelector.vue";
 
 export default {
   data() {
     return {
       gridSize: 25,
       pixelSize: "25",
-      colorName: "black"
+      colorName: "black",
+      toolName: "pencil"
     };
   },
   components: {
@@ -40,6 +51,7 @@ export default {
     CanvasSizeSlider,
     ColorPalette,
     PixelSizeSlider,
+    ToolSelector,
     DownloadArt
   },
   methods: {
@@ -60,6 +72,12 @@ export default {
      */
     updateColor(val) {
       this.colorName = val;
+    },
+    /**
+     * updateTool.
+     */
+    updateTool(val) {
+      this.toolName = val;
     }
   },
   mounted() {
@@ -77,44 +95,38 @@ export default {
      * selectThemeOne.
      */
     function selectThemeOne(event) {
-      if (event.target.checked) {
-        document.documentElement.setAttribute("data-theme", "one");
-        localStorage.setItem("theme", "one");
-      } else {
-        document.documentElement.setAttribute("data-theme", "one");
-        localStorage.setItem("theme", "one");
-      }
+      document.documentElement.setAttribute("data-theme", "one");
+      localStorage.setItem("theme", "one");
     }
 
     /**
      * selectThemeTwo.
      */
     function selectThemeTwo(event) {
-      if (event.target.checked) {
-        document.documentElement.setAttribute("data-theme", "two");
-        localStorage.setItem("theme", "two");
-      } else {
-        document.documentElement.setAttribute("data-theme", "two");
-        localStorage.setItem("theme", "two");
-      }
+      document.documentElement.setAttribute("data-theme", "two");
+      localStorage.setItem("theme", "two");
     }
 
     /**
      * selectThemeThree.
      */
     function selectThemeThree(event) {
-      if (event.target.checked) {
-        document.documentElement.setAttribute("data-theme", "three");
-        localStorage.setItem("theme", "three");
-      } else {
-        document.documentElement.setAttribute("data-theme", "three");
-        localStorage.setItem("theme", "three");
-      }
+      document.documentElement.setAttribute("data-theme", "three");
+      localStorage.setItem("theme", "three");
+    }
+
+    /**
+     * selectThemeFour.
+     */
+    function selectThemeFour(event) {
+      document.documentElement.setAttribute("data-theme", "four");
+      localStorage.setItem("theme", "four");
     }
 
     themeOne.addEventListener("change", selectThemeOne, false);
     themeTwo.addEventListener("change", selectThemeTwo, false);
     themeThree.addEventListener("change", selectThemeThree, false);
+    themeFour.addEventListener("change", selectThemeFour, false);
   }
 };
 </script>
@@ -166,6 +178,17 @@ export default {
   --accentTransparent: rgba(103, 47, 47, 0.15);
 }
 
+[data-theme="four"] {
+  --backgroundOne: rgb(4, 47, 75);
+  --backgroundTwo: rgb(251, 201, 157);
+  --fontColor: rgb(231, 228, 228);
+  --accent: rgb(237, 18, 80);
+  --backgroundOneTransparent: rgba(4, 47, 75, 0.15);
+  --backgroundTwoTransparent: rgba(251, 201, 157, 0.15);
+  --fontColorTransparent: rgba(231, 228, 228, 0.35);
+  --accentTransparent: rgba(237, 18, 80, 0.15);
+}
+
 html,
 body {
   font-family: "Ubuntu", sans-serif;
@@ -179,6 +202,13 @@ h4,
 h5,
 h6 {
   font-family: "VT323", monospace;
+  color: var(--fontColor);
+}
+
+p,
+a,
+span {
+  font-family: "Ubuntu", sans-serif;
   color: var(--fontColor);
 }
 
@@ -203,6 +233,9 @@ h6 {
     }
     h1 {
       margin: 0 0 16px 0;
+      span {
+        color: var(--accent);
+      }
     }
   }
   aside {
@@ -219,6 +252,7 @@ h6 {
       .canvas-size,
       .pixel-size,
       .color-palette,
+      .tool-selector,
       .download-art {
         border-bottom: 2px solid black;
         &:hover {
