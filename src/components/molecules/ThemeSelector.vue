@@ -1,10 +1,10 @@
 <template>
   <section>
     <div class="menu-button" v-on:click="toggleTool()">
-      <ToolHeader text="Theme" v-if="!expanded" icon="plus-square" />
-      <ToolHeader text="Theme" v-if="expanded" icon="minus-square" />
+      <ToolHeader text="Theme" v-show="!expanded" icon="plus-square" />
+      <ToolHeader text="Theme" v-show="expanded" icon="minus-square" />
     </div>
-    <div class="menu-content" v-if="expanded">
+    <div class="menu-content" v-show="expanded">
       <input type="radio" id="themeOne" name="themeNumber" value="themeOne" />
       <label for="themeOne">
         <div style="background: #39414b"></div>
