@@ -2,27 +2,27 @@
   <div>
     <div
       v-if="canvasPixel && toolName == 'pencil'"
-      :style="{ width: `${pixelSize}px`, height: `${pixelSize}px`, backgroundColor: `${color}`}"
+      :style="{ width: `${pixelSize}px`, height: `${pixelSize}px`, backgroundColor: `${savedColor}`}"
       v-bind:class="{'partiallyVisible': active && !clicked, 'fullyInvisible': !active && !clicked, 'fullyVisible': clicked}"
       @mouseenter="!clicked ? active = !active : null"
       @mouseleave="!clicked ? active = !active : null"
-      @mousedown="clicked = true"
+      @mousedown="clicked = true; savedColor = color"
     ></div>
     <div
       v-else-if="canvasPixel && toolName == 'paintBrush'"
-      :style="{ width: `${pixelSize}px`, height: `${pixelSize}px`, backgroundColor: `${color}`}"
+      :style="{ width: `${pixelSize}px`, height: `${pixelSize}px`, backgroundColor: `${savedColor}`}"
       v-bind:class="{'partiallyVisible': active && !clicked, 'fullyInvisible': !active && !clicked, 'fullyVisible': clicked}"
       @mouseenter="!clicked ? active = !active : null"
       @mouseleave="!clicked ? active = !active : null"
-      @mousemove="clicked = true"
+      @mousemove="clicked = true; savedColor = color"
     ></div>
     <div
       v-else-if="canvasPixel && toolName == 'fillBucket'"
-      :style="{ width: `${pixelSize}px`, height: `${pixelSize}px`, backgroundColor: `${color}`}"
+      :style="{ width: `${pixelSize}px`, height: `${pixelSize}px`, backgroundColor: `${savedColor}`}"
       v-bind:class="{'partiallyVisible': active && !clicked, 'fullyInvisible': !active && !clicked, 'fullyVisible': clicked}"
       @mouseenter="!clicked ? active = !active : null"
       @mouseleave="!clicked ? active = !active : null"
-      @mousemove="clicked = true"
+      @mousemove="clicked = true; savedColor = color"
     ></div>
     <div
       v-else
@@ -38,7 +38,8 @@ export default {
   data() {
     return {
       active: false,
-      clicked: false
+      clicked: false,
+      savedColor: this.color
     };
   },
   props: {
