@@ -14,7 +14,7 @@
       v-bind:class="{'partiallyVisible': active && !clicked, 'fullyInvisible': !active && !clicked, 'fullyVisible': clicked}"
       @mouseenter="paint"
       @mouseleave="!clicked ? active = false : null"
-      @mousedown="clicked = true"
+      @mousedown="clicked = true; savedColor = color"
     ></div>
     <div
       v-else-if="canvasPixel && toolName == 'fill'"
@@ -48,6 +48,13 @@ export default {
     canvasPixel: { type: Boolean }, // indicates pixel is for the canvas only
     toolName: {
       type: String
+    }
+  },
+  watch: {
+    color: function (newColor) {
+      if (!this.clicked) {
+        this.savedColor = newColor;
+      }
     }
   },
   methods: {
