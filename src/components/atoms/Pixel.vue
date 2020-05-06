@@ -12,12 +12,12 @@
       v-else-if="canvasPixel && toolName == 'paintBrush'"
       :style="{ width: `${pixelSize}px`, height: `${pixelSize}px`, backgroundColor: `${savedColor}`}"
       v-bind:class="{'partiallyVisible': active && !clicked, 'fullyInvisible': !active && !clicked, 'fullyVisible': clicked}"
-      @mouseenter="!clicked ? active = !active : null"
-      @mouseleave="!clicked ? active = !active : null"
-      @mousemove="clicked = true; savedColor = color"
+      @mouseenter="paint"
+      @mouseleave="!clicked ? active = false : null"
+      @mousedown="clicked = true"
     ></div>
     <div
-      v-else-if="canvasPixel && toolName == 'fillBucket'"
+      v-else-if="canvasPixel && toolName == 'fill'"
       :style="{ width: `${pixelSize}px`, height: `${pixelSize}px`, backgroundColor: `${savedColor}`}"
       v-bind:class="{'partiallyVisible': active && !clicked, 'fullyInvisible': !active && !clicked, 'fullyVisible': clicked}"
       @mouseenter="!clicked ? active = !active : null"
@@ -48,6 +48,14 @@ export default {
     canvasPixel: { type: Boolean }, // indicates pixel is for the canvas only
     toolName: {
       type: String
+    }
+  },
+  methods: {
+    paint: function (evt) {
+      this.active = true;
+      if (evt.buttons === 1) {
+        this.clicked = true;
+      }
     }
   }
 };
